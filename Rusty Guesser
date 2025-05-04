@@ -1,0 +1,23 @@
+use std::io;
+
+fn main() {
+    println!("Please guess the number!");
+    println!("Input your guess!");
+
+    let mut guess = String::new();
+
+    io::stdin()
+        .read_line(&mut guess)
+        .expect("Failed to read line");
+
+    // Convert guess from String to number (u32)
+    let guess: u32 = guess.trim().parse().expect("Please type a number!");
+
+    if guess == 9 {
+        println!("Correct!");
+    } else {
+        println!("Wrong!");
+    }
+
+    println!("You guessed: {}", guess);
+}
